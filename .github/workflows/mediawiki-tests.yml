@@ -314,26 +314,26 @@ jobs:
   notify-irc:
     needs: test
     runs-on: ubuntu-latest
-    if: ${{ always() && github.repository_owner == 'miraheze' && ( github.ref == 'refs/heads/master' || github.event_name == 'pull_request' ) }}
+    if: ${{ always() && github.repository_owner == 'WikiForge' && ( github.ref == 'refs/heads/master' || github.event_name == 'pull_request' ) }}
     steps:
       - name: succeeded
         uses: technote-space/workflow-conclusion-action@v3
       - uses: rectalogic/notify-irc@v2
         if: env.WORKFLOW_CONCLUSION == 'success'
         with:
-          channel: "#miraheze-sre"
+          channel: "#wikiforge-sre"
           server: "irc.libera.chat"
-          nickname: miraheze-github
+          nickname: wikiforge-github
           message: ${{ github.repository }} - ${{ github.actor }} the build passed.
-          sasl_password: ${{ secrets.IRC_MIRAHEZEBOTS }}
+          sasl_password: ${{ secrets.IRC_WIKIFORGEBOTS }}
 
       - name: failed
         uses: technote-space/workflow-conclusion-action@v3
       - uses: rectalogic/notify-irc@v2
         if: env.WORKFLOW_CONCLUSION == 'failure'
         with:
-          channel: "#miraheze-sre"
+          channel: "#wikiforge-sre"
           server: "irc.libera.chat"
-          nickname: miraheze-github
+          nickname: wikiforge-github
           message: ${{ github.repository }} - ${{ github.actor }} the build has errored.
-          sasl_password: ${{ secrets.IRC_MIRAHEZEBOTS }}
+          sasl_password: ${{ secrets.IRC_WIKIFORGEBOTS }}
