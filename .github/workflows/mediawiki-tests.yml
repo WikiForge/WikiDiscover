@@ -141,7 +141,7 @@ jobs:
           if [ -e .github/workflows/dependencies ]; then
             cd .github/workflows
             curl -sL https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/parameter_functions.py -o pf.py
-            curl -sL https://raw.githubusercontent.com/Universal-Omega/scripts/master/mediawiki/resolve_dependencies.py -o rd.py
+            curl -sL https://raw.githubusercontent.com/WikiForge/ci-scripts/master/mediawiki/resolve_dependencies.py -o rd.py
             echo "DEPENDENCIES=$(python3 rd.py)" >> $GITHUB_ENV
           fi
 
@@ -190,7 +190,7 @@ jobs:
           echo '?>' >> src/includes/DevelopmentSettings.php
 
           if [ -d src/extensions/CreateWiki ] || [ "${{ github.event.repository.name }}" == 'CreateWiki' ]; then
-            curl -sL https://raw.githubusercontent.com/Universal-Omega/scripts/master/mediawiki/globals/setup-CreateWiki.php >> src/includes/DevelopmentSettings.php
+            curl -sL https://raw.githubusercontent.com/WikiForge/ci-scripts/master/mediawiki/globals/setup-CreateWiki.php >> src/includes/DevelopmentSettings.php
           fi
 
           echo '<?php' >> src/includes/DevelopmentSettings.php
