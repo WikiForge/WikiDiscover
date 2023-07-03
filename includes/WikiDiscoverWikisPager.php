@@ -91,7 +91,7 @@ class WikiDiscoverWikisPager extends TablePager {
 	public function formatRow( $row ) {
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'ManageWiki' ) ) {
 			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-			if ( !$permissionManager->userHasRight( $this->getUser(), 'wikidiscover-view-all-wikis' ) ) {
+			if ( !$permissionManager->userHasRight( $this->getUser(), 'wikidiscover-list-all-wikis' ) ) {
 				$manageWikiSettings = new ManageWikiSettings( $row->wiki_dbname );
 				if ( $manageWikiSettings->list( 'wgWikiDiscoverExclude' ) ) {
 					return '';
