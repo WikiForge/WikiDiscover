@@ -5,7 +5,7 @@
 		"Universal Omega"
 	],
 	"descriptionmsg": "wikidiscover-desc",
-	"url": "https://github.com/miraheze/WikiDiscover",
+	"url": "https://github.com/WikiForge/WikiDiscover",
 	"license-name": "GPL-3.0-or-later",
 	"type": "specialpage",
 	"requires": {
