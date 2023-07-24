@@ -30,14 +30,14 @@ jobs:
           - mw: 'REL1_40'
             php: 7.4
             php-docker: 74
-            composer-test: false
-            experimental: true
+            composer-test: true
+            experimental: false
 
           # Latest MediaWiki stable - PHP 8.2 
           - mw: 'REL1_40'
             php: 8.2
             php-docker: 82
-            composer-test: true
+            composer-test: false
             experimental: true
 
           # Latest MediaWiki master - PHP 7.4
